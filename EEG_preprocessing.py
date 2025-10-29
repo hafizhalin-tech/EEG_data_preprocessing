@@ -1,23 +1,3 @@
-"""
-Streamlit EEG Processor
-Single-file Streamlit app to upload multiple EEG files (14 channels: AF3, F7, F3, FC5, T7, P7, O1, O2, P8, T8, FC6, F4, F8, AF4),
-apply filtering/normalization/segmentation (with overlap), extract time / frequency / time-frequency features,
-compute Mutual Information (MI) scores (requires labels) and save most significant features to CSV.
-
-How it works (UI):
-- Upload one or more CSV/XLSX files containing raw EEG columns (14 columns in the channel order above).
-- Optionally upload a label CSV that maps filename -> label (two columns: filename, label)
-  OR choose "Infer labels from filename (regex)" and provide a regex capture group.
-- Choose preprocessing: filter type & params, normalization toggle.
-- Choose segmentation: window length (seconds), overlap fraction (0-0.99), sampling rate.
-- Extract features, calculate MI (if labels available), display feature table and top features.
-- Pick MI threshold and save selected features to CSV.
-
-Save this file to a GitHub repo and run with: streamlit run streamlit_eeg_processor.py
-
-Dependencies: streamlit, numpy, pandas, scipy, scikit-learn, pywt, openpyxl
-"""
-
 import streamlit as st
 import pandas as pd
 import numpy as np
